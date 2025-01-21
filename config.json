@@ -1,0 +1,690 @@
+{
+    "ECL": {
+        "iTransformer": {
+            "e_layers": 3,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 512
+        },
+        "PatchTST": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "n_heads": 16,
+            "d_model": 128,
+            "d_ff": 256
+        },
+        "FEDformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Crossformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 64,
+            "d_ff": 64
+        },
+        "Autoformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimesNet": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 32,
+            "d_ff": 32
+        },
+        "MICN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 256,
+            "d_ff": 512
+        },
+        "ModernTCN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048,
+            "ffn_ratio": 8,
+            "patch_size": 8,
+            "patch_stride": 4,
+            "num_blocks": [1],
+            "large_size": [51],
+            "small_size": [5],
+            "dims": [64, 64, 64, 64],
+            "head_dropout": 0
+        },
+        "TimeMixer": {
+            "e_layers": 3,
+            "d_model": 16,
+            "d_ff": 32,
+            "down_sampling_layers": 3,
+            "down_sampling_window": 2
+        },
+        "Pathformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "factor": 3,
+            "layer_nums": 3,
+            "residual_connection": 1,
+            "k": 2,
+            "d_model": 16,
+            "d_ff": 128,
+            "patch_size_list": [16, 12, 8, 32, 12, 8, 6, 4, 8, 6, 4, 2]
+        },
+        "CARD": {
+            "e_layers": 2,
+            "n_heads": 16,
+            "d_model": 128,
+            "d_ff": 256,
+            "dropout": 0.3,
+            "patch_len": 16,
+            "stride": 8,
+            "dp_rank": 8,
+            "feature_dim": 1536
+        }
+    },
+    "ETTh1": {
+        "iTransformer": {
+            "e_layers": 2,
+            "d_model": 256,
+            "d_ff": 256
+        },
+        "PatchTST": {
+            "e_layers": 1,
+            "d_layers": 1,
+            "n_heads": 16,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "FEDformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Crossformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Autoformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimesNet": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 16,
+            "d_ff": 32
+        },
+        "MICN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "ModernTCN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048,
+            "ffn_ratio": 1,
+            "patch_size": 8,
+            "patch_stride": 4,
+            "num_blocks": [1],
+            "large_size": [51],
+            "small_size": [5],
+            "dims": [64, 64, 64, 64],
+            "head_dropout": 0
+        },
+        "TimeMixer": {
+            "e_layers": 2,
+            "d_model": 16,
+            "d_ff": 32,
+            "down_sampling_layers": 3,
+            "down_sampling_window": 2
+        }
+    },
+    "ETTh2": {
+        "iTransformer": {
+            "e_layers": 2,
+            "d_model": 128,
+            "d_ff": 128
+        },
+        "PatchTST": {
+            "e_layers": 3,
+            "d_layers": 1,
+            "n_heads": 4,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "FEDformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Crossformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Autoformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimesNet": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 32,
+            "d_ff": 32
+        },
+        "MICN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "ModernTCN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048,
+            "ffn_ratio": 1,
+            "patch_size": 8,
+            "patch_stride": 4,
+            "num_blocks": [1],
+            "large_size": [51],
+            "small_size": [5],
+            "dims": [64, 64, 64, 64],
+            "head_dropout": 0
+        },
+        "TimeMixer": {
+            "e_layers": 2,
+            "d_model": 16,
+            "d_ff": 32,
+            "down_sampling_layers": 3,
+            "down_sampling_window": 2
+        }
+    },
+    "ETTm1": {
+        "iTransformer": {
+            "e_layers": 2,
+            "d_model": 128,
+            "d_ff": 128
+        },
+        "PatchTST": {
+            "e_layers": 3,
+            "d_layers": 1,
+            "n_heads": 2,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "FEDformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Crossformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Autoformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimesNet": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 16,
+            "d_ff": 32
+        },
+        "MICN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "ModernTCN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048,
+            "ffn_ratio": 8,
+            "patch_size": 8,
+            "patch_stride": 4,
+            "num_blocks": [3],
+            "large_size": [51],
+            "small_size": [5],
+            "dims": [64, 64, 64, 64],
+            "head_dropout": 0
+        },
+        "TimeMixer": {
+            "e_layers": 2,
+            "d_model": 16,
+            "d_ff": 32,
+            "down_sampling_layers": 3,
+            "down_sampling_window": 2
+        }
+    },
+    "ETTm2": {
+        "iTransformer": {
+            "e_layers": 2,
+            "d_model": 128,
+            "d_ff": 128
+        },
+        "PatchTST": {
+            "e_layers": 3,
+            "d_layers": 1,
+            "n_heads": 4,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "FEDformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Crossformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Autoformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimesNet": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 16,
+            "d_ff": 32
+        },
+        "MICN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "ModernTCN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048,
+            "ffn_ratio": 8,
+            "patch_size": 8,
+            "patch_stride": 4,
+            "num_blocks": [3],
+            "large_size": [51],
+            "small_size": [5],
+            "dims": [64, 64, 64, 64],
+            "head_dropout": 0.2
+        },
+        "TimeMixer": {
+            "e_layers": 2,
+            "d_model": 32,
+            "d_ff": 32,
+            "down_sampling_layers": 3,
+            "down_sampling_window": 2
+        }
+    },
+    "Exchange": {
+        "iTransformer": {
+            "e_layers": 2,
+            "d_model": 128,
+            "d_ff": 128
+        },
+        "PatchTST": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "n_heads": 8,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimeMixer": {
+            "e_layers": 3,
+            "d_model": 16,
+            "d_ff": 32,
+            "down_sampling_layers": 3,
+            "down_sampling_window": 2
+        }
+    },
+    "ILI": {
+        "iTransformer": {
+            "e_layers": 2,
+            "d_model": 128,
+            "d_ff": 128,
+            "n_heads": 4
+        },
+        "PatchTST": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "n_heads": 8,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimeMixer": {
+            "e_layers": 3,
+            "d_model": 16,
+            "d_ff": 32,
+            "down_sampling_layers": 3,
+            "down_sampling_window": 2
+        }
+    },
+    "PEMS03": {
+        "iTransformer": {
+            "e_layers": 4,
+            "d_model": 512,
+            "d_ff": 512
+        },
+        "PatchTST": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "n_heads": 8,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimeMixer": {
+            "e_layers": 5,
+            "d_model": 128,
+            "d_ff": 256,
+            "down_sampling_layers": 1,
+            "down_sampling_window": 2,
+            "label_len": 0,
+            "use_norm": 0,
+            "channel_independence": 0
+        }
+    },
+    "PEMS04": {
+        "iTransformer": {
+            "e_layers": 4,
+            "d_model": 1024,
+            "d_ff": 1024
+        },
+        "PatchTST": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "n_heads": 8,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimeMixer": {
+            "e_layers": 5,
+            "d_model": 128,
+            "d_ff": 256,
+            "down_sampling_layers": 1,
+            "down_sampling_window": 2,
+            "label_len": 0,
+            "use_norm": 0,
+            "channel_independence": 0
+        }
+    },
+    "PEMS07": {
+        "iTransformer": {
+            "e_layers": 4,
+            "d_model": 1024,
+            "d_ff": 1024
+        },
+        "PatchTST": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "n_heads": 8,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimeMixer": {
+            "e_layers": 5,
+            "d_model": 128,
+            "d_ff": 256,
+            "down_sampling_layers": 1,
+            "down_sampling_window": 2,
+            "label_len": 0,
+            "use_norm": 0,
+            "channel_independence": 0
+        }
+    },
+    "PEMS08": {
+        "iTransformer": {
+            "e_layers": 2,
+            "d_model": 512,
+            "d_ff": 512
+        },
+        "PatchTST": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "n_heads": 8,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimeMixer": {
+            "e_layers": 5,
+            "d_model": 128,
+            "d_ff": 256,
+            "down_sampling_layers": 1,
+            "down_sampling_window": 2,
+            "label_len": 0,
+            "use_norm": 0,
+            "channel_independence": 0
+        }
+    },
+    "Solar": {
+        "iTransformer": {
+            "e_layers": 2,
+            "d_model": 512,
+            "d_ff": 512
+        },
+        "PatchTST": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "n_heads": 8,
+            "d_model": 128,
+            "d_ff": 128
+        },
+        "FEDformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 64,
+            "d_ff": 64
+        },
+        "Crossformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Autoformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimesNet": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 32,
+            "d_ff": 32
+        },
+        "MICN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 32,
+            "d_ff": 32
+        },
+        "ModernTCN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 512,
+            "ffn_ratio": 1,
+            "patch_size": 8,
+            "patch_stride": 4,
+            "num_blocks": [1],
+            "large_size": [51],
+            "small_size": [5],
+            "dims": [64, 64, 64, 64],
+            "head_dropout": 0
+        },
+        "TimeMixer": {
+            "e_layers": 3,
+            "d_model": 512,
+            "d_ff": 2048,
+            "down_sampling_layers": 2,
+            "down_sampling_window": 2,
+            "label_len": 0,
+            "use_norm": 0,
+            "channel_independence": 0
+        }
+    },
+    "Traffic": {
+        "iTransformer": {
+            "e_layers": 4,
+            "d_model": 512,
+            "d_ff": 512
+        },
+        "PatchTST": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "n_heads": 8,
+            "d_model": 128,
+            "d_ff": 128
+        },
+        "FEDformer": {
+            "e_layers": 4,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Crossformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 64,
+            "d_ff": 64,
+            "n_heads": 2
+        },
+        "Autoformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimesNet": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 32,
+            "d_ff": 32
+        },
+        "MICN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 512
+        },
+        "ModernTCN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048,
+            "ffn_ratio": 8,
+            "patch_size": 8,
+            "patch_stride": 4,
+            "num_blocks": [1],
+            "large_size": [51],
+            "small_size": [5],
+            "dims": [64, 64, 64, 64],
+            "head_dropout": 0
+        },
+        "TimeMixer": {
+            "e_layers": 3,
+            "d_model": 32,
+            "d_ff": 64,
+            "down_sampling_layers": 3,
+            "down_sampling_window": 2,
+            "label_len": 0,
+            "use_norm": 0
+        }
+    },
+    "Weather": {
+        "iTransformer": {
+            "e_layers": 3,
+            "d_model": 512,
+            "d_ff": 512
+        },
+        "PatchTST": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "n_heads": 3,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "FEDformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "Crossformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 32,
+            "d_ff": 32
+        },
+        "Autoformer": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048
+        },
+        "TimesNet": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 32,
+            "d_ff": 32
+        },
+        "MICN": {
+            "e_layers": 2,
+            "d_layers": 1,
+            "d_model": 32,
+            "d_ff": 32
+        },
+        "ModernTCN": {
+            "e_layers": 3,
+            "d_layers": 1,
+            "d_model": 512,
+            "d_ff": 2048,
+            "ffn_ratio": 8,
+            "patch_size": 8,
+            "patch_stride": 4,
+            "num_blocks": [1],
+            "large_size": [51],
+            "small_size": [5],
+            "dims": [64, 64, 64, 64],
+            "head_dropout": 0
+        },
+        "TimeMixer": {
+            "e_layers": 3,
+            "d_model": 16,
+            "d_ff": 32,
+            "down_sampling_layers": 3,
+            "down_sampling_window": 2
+        }
+    }
+}
