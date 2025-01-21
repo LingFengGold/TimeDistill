@@ -75,5 +75,6 @@ ehthumbs.db
 Thumbs.db
 
 
-dataset
-
+*.csv
+*.txt
+checkpoints

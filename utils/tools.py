@@ -8,66 +8,6 @@ import math
 
 plt.switch_backend('agg')
 
-
-# def adjust_learning_rate(optimizer, epoch, args):
-#     # lr = args.learning_rate * (0.2 ** (epoch // 2))
-#     if args.lradj == 'type1':
-#         lr_adjust = {epoch: args.learning_rate * (0.5 ** ((epoch - 1) // 1))}
-#     elif args.lradj == 'type2':
-#         lr_adjust = {
-#             2: 5e-5, 4: 1e-5, 6: 5e-6, 8: 1e-6,
-#             10: 5e-7, 15: 1e-7, 20: 5e-8
-#         }
-#     elif args.lradj == "cosine":
-#         lr_adjust = {epoch: args.learning_rate /2 * (1 + math.cos(epoch / args.train_epochs * math.pi))}
-#     if epoch in lr_adjust.keys():
-#         lr = lr_adjust[epoch]
-#         for param_group in optimizer.param_groups:
-#             param_group['lr'] = lr
-#         print('Updating learning rate to {}'.format(lr))
-# def adjust_learning_rate_proj(optimizer, epoch, args, scheduler=None):
-#     # lr = args.learning_rate * (0.2 ** (epoch // 2))
-#     if args.lradj == 'type1':
-#         lr_adjust = {epoch: args.learning_rate_proj * (0.5 ** ((epoch - 1) // 1))}
-#     elif args.lradj == 'type2':
-#         lr_adjust = {
-#             2: 5e-5, 4: 1e-5, 6: 5e-6, 8: 1e-6,
-#             10: 5e-7, 15: 1e-7, 20: 5e-8
-#         }
-#     elif args.lradj == 'type3':
-#         lr_adjust = {epoch: args.learning_rate if epoch < 3 else args.learning_rate * (0.8 ** ((epoch - 3) // 1))}
-#     elif args.lradj == 'type4':
-#         lr_adjust = {epoch: args.learning_rate if epoch < 3 else args.learning_rate * (0.9 ** ((epoch - 3) // 1))}
-#     elif args.lradj == 'type5':
-#         lr_adjust = {epoch: args.learning_rate if epoch < 3 else args.learning_rate * (0.95 ** ((epoch - 3) // 1))}
-#     elif args.lradj == 'constant':
-#         lr_adjust = {epoch: args.learning_rate}
-#     elif args.lradj == "cosine":
-#         lr_adjust = {epoch: args.learning_rate_proj /2 * (1 + math.cos(epoch / args.train_epochs * math.pi))}
-#     elif args.lradj == 'TST':
-#         lr_adjust = {epoch: scheduler.get_last_lr()[0]}
-#     elif args.lradj == 'CARD':
-#         """Decay the learning rate with half-cycle cosine after warmup"""
-#         min_lr = 0
-#         if epoch < args.warmup_epochs:
-#             lr = args.learning_rate_proj * epoch / args.warmup_epochs #* 10
-#         else:
-#             lr = min_lr+ (args.learning_rate_proj - min_lr) * 0.5 * \
-#             (1. + math.cos(math.pi * (epoch - args.warmup_epochs) / (args.train_epochs - args.warmup_epochs)))
-#         for param_group in optimizer.param_groups:
-#             if "lr_scale" in param_group:
-#                 param_group["lr"] = lr * param_group["lr_scale"]
-#             else:
-#                 param_group["lr"] = lr
-#         print(f'Updating learning rate to {lr:.7f}')
-#         return
-#     if epoch in lr_adjust.keys():
-#         lr = lr_adjust[epoch]
-#         for param_group in optimizer.param_groups:
-#             param_group['lr'] = lr
-#         if args.lradj != 'TST':
-#             print('Updating learning rate to {}'.format(lr))
-
 def adjust_learning_rate(optimizer, epoch, args, scheduler=None):
     # lr = args.learning_rate * (0.2 ** (epoch // 2))
     if args.lradj == 'type1':
