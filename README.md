@@ -12,8 +12,8 @@ bash ./run_scripts/train_teacher.sh
 
 4. **Train the student MLP.** Run the following scripts to train the student MLP for each dataset. **MAKE SURE YOU HAVE TRAINED THIS TEACHER MODEL BY USING ABOVE ```bash ./run_scripts/train_teacher.sh``` BEFORE RUNNING SCRIPT BELOW.**
 ```bash
-bash ./run_scripts/train_student_iTransformer.sh # Teacher is iTransformer with tuned hyperparameter
-bash ./run_scripts/train_student_ModernTCN.sh # Teacher is ModernTCN with tuned hyperparameter
+bash ./run_scripts/train_student_iTransformer.sh # Teacher: iTransformer
+bash ./run_scripts/train_student_ModernTCN.sh # Teacher: ModernTCN
 bash ./run_scripts/train_student.sh # Customize Teacher. 
 ```
 You can specific the teacher model name using ```model_t``` in ```./run_scripts/train_student.sh```. The above scripts default to running all datasets across all prediction lengths ```(96, 192, 336 ,720)```.
