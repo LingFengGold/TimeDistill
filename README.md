@@ -10,7 +10,7 @@ bash ./run_scripts/train_teacher.sh
 ```
 Set ```method``` in ```./run_scripts/train_teacher.sh``` to the specific teacher model name. Supported teacher models include: ```iTransformer, ModernTCN, TimeMixer, PatchTST, MICN, Fedformer, TimesNet, Autoformer```. The trained parameters for the teacher model will be saved in the ```./checkpoints/``` folder for use in student MLP training.
 
-4. **Train the student MLP.** Run the following scripts to train the student MLP for each dataset. MAKE SURE YOU HAVE TRAINED THIS TEACHER MODEL BY USING ABOVE ```bash ./run_scripts/train_teacher.sh``` BEFORE RUNNING SCRIPT BELOW.
+4. **Train the student MLP.** Run the following scripts to train the student MLP for each dataset. MAKE SURE YOU HAVE TRAINED THE TEACHER MODEL BY USING ABOVE ```bash ./run_scripts/train_teacher.sh``` BEFORE RUNNING SCRIPT BELOW.
 ```bash
 bash ./run_scripts/train_student_iTransformer.sh # Teacher: iTransformer
 bash ./run_scripts/train_student_ModernTCN.sh # Teacher: ModernTCN
