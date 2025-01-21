@@ -78,3 +78,6 @@ Thumbs.db
 *.csv
 *.txt
 checkpoints
+log_teacher_results
+log_student_results
+__pycache__

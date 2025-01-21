@@ -44,19 +44,20 @@ learning_rate=0.01
 lradj=type1
 model_t=iTransformer 
 gpu=0
-alpha=${alpha_dist[$dataset]}
-beta=${beta_dist[$dataset]}
-norm=${norm_dist[$dataset]}
-d_model=${d_model_dist[$dataset]}
-train_epochs=${train_epochs_dist[$dataset]}
 
 folder=log_student_results
 mkdir -p ${folder}
 
 for dataset in "${!datasets[@]}"; do
-    pred_lens="${datasets[$dataset]}"
+    pred_lens=${datasets[$dataset]}
+    alpha=${alpha_dist[$dataset]}
+    beta=${beta_dist[$dataset]}
+    norm=${norm_dist[$dataset]}
+    d_model=${d_model_dist[$dataset]}
+    train_epochs=${train_epochs_dist[$dataset]}
     for pred_len in $pred_lens; do
-        echo "Run method:$method, dataset: $dataset with seq_len: $seq_len, pred_len: $pred_len, alpha: $alpha, beta: $beta, learning_rate: $learning_rate, lradj: $lradj, d_model: $d_model, model_t: $model_t"
+        echo "Run method:$method, dataset: $dataset with seq_len: $seq_len, pred_len: $pred_len, alpha: $alpha, beta: $beta, learning_rate: $learning_rate, lradj: $lradj, d_model: $d_model, model_t: $model_t."
+        echo "Output in ${folder}/${dataset}_${pred_len}_${learning_rate}_${lradj}_${d_model}_${train_epochs}_${norm}_${alpha}_${beta}_${model_t}_${method}.out"
         bash ./scripts/distillation/${dataset}/${method}.sh ${gpu} ${pred_len} ${learning_rate} ${lradj} ${d_model} ${train_epochs} ${norm} ${alpha} ${beta} ${model_t} ${seq_len} >> ${folder}/${dataset}_${pred_len}_${learning_rate}_${lradj}_${d_model}_${train_epochs}_${norm}_${alpha}_${beta}_${model_t}_${method}.out
     done
 done

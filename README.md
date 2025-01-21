@@ -3,7 +3,7 @@ This repository contains the official implementation for the paper: **TimeDistil
 
 ## Usage
 1. **Install requirements.** ```pip install -r requirements.txt``` or ```conda env create -f environment.yml```
-2. **Download data.** You can download the all datasets from [Google Driver](https://drive.google.com/u/0/uc?id=1NF7VEefXCmXuWNbnNe858WvQAkJ_7wuP&export=download) and put them in ```./dataset/```. All the datasets are well pre-processed and can be used easily. 
+2. **Download data.** You can download the all datasets from [Google Driver](https://drive.google.com/u/0/uc?id=1NF7VEefXCmXuWNbnNe858WvQAkJ_7wuP&export=download) and put ``.zip`` file in ```./dataset/``` and unzip directly. All the datasets are well pre-processed and can be used easily. 
 3. **Train the teacher model.** To obtain well-trained teacher model, run the corresponding script: 
 ```bash
 bash ./run_scripts/train_teacher.sh

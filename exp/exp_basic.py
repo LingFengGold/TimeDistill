@@ -1,12 +1,8 @@
 import os
 import torch
-# from models import Autoformer, Transformer, TimesNet, Nonstationary_Transformer, DLinear, FEDformer, \
-#     Informer, LightTS, Reformer, ETSformer, Pyraformer, PatchTST, MICN, Crossformer, FiLM, iTransformer, \
-#     Koopa, TiDE, FreTS, TimeMixer, TSMixer, SegRNN, MambaSimple, TemporalFusionTransformer, \
-#     DMLP_2L, DMLP_3L, DMLP_4L,Linear, MLP_2L, MLP_3L, PathFormer
 
-from models import DMLP_cd, Transformer, FEDformer, Pyraformer, Autoformer, Informer, DLinear, iTransformer, DMLP_2L, DMLP_3L, DMLP_4L, Linear, MLP, MLP_3L, Pathformer, CARD, Fredformer,\
-                PatchTST, TimeMixer, SCINet, ModernTCN, DMLP,  Crossformer, TimesNet, MICN, LightTS, TSMixer, TiDE, FreTS
+from models import FEDformer, Autoformer, DLinear, iTransformer, Linear, MLP, \
+                PatchTST, TimeMixer, ModernTCN, DMLP, TimesNet, MICN, LightTS, TSMixer, FreTS
 
 
 class Exp_Basic(object):
@@ -15,46 +11,20 @@ class Exp_Basic(object):
         self.model_dict = {
             'TimesNet': TimesNet,
             'Autoformer': Autoformer,
-            'Transformer': Transformer,
-            # 'Nonstationary_Transformer': Nonstationary_Transformer,
             'DLinear': DLinear,
             'FEDformer': FEDformer,
-            'Informer': Informer,
             'LightTS': LightTS,
-            # 'Reformer': Reformer,
-            # 'ETSformer': ETSformer,
             'PatchTST': PatchTST,
-            'Pyraformer': Pyraformer,
             'MICN': MICN,
-            'Crossformer': Crossformer,
-            # 'FiLM': FiLM,
             'iTransformer': iTransformer,
-            # 'Koopa': Koopa,
-            'TiDE': TiDE,
             'FreTS': FreTS,
-            # 'MambaSimple': MambaSimple,
             'TimeMixer': TimeMixer,
             'TSMixer': TSMixer,
-            # 'SegRNN': SegRNN,
-            # 'TemporalFusionTransformer': TemporalFusionTransformer,
-            'DMLP_2L': DMLP_2L,
-            'DMLP_3L': DMLP_3L,
-            'DMLP_4L': DMLP_4L,
             'DMLP': DMLP,
             'Linear': Linear,
             'MLP': MLP,
-            'MLP_3L': MLP_3L,
-            'Pathformer': Pathformer,
-            'CARD': CARD,
-            'Fredformer': Fredformer,
-            "SCINet": SCINet,
             "ModernTCN": ModernTCN,
-            'DMLP_cd':  DMLP_cd
         }
-        if args.model == 'Mamba':
-            print('Please make sure you have successfully installed mamba_ssm')
-            from models import Mamba
-            self.model_dict[Mamba] = Mamba
 
         self.device = self._acquire_device()
         self.model = self._build_model().to(self.device)

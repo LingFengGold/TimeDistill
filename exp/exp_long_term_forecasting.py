@@ -10,42 +10,13 @@ import os
 import time
 import warnings
 import numpy as np
-from utils.augmentation import run_augmentation,run_augmentation_single
 import copy
-from models import iTransformer, MLP, MLP_3L, Regressor
+from models import iTransformer, MLP, Regressor
 from torch.optim import lr_scheduler
-# from exp.ContrastiveLoss import SupConLoss,swavloss,NTXentLoss
-from exp.Regularization  import Regularization
 import json
 import glob
 import psutil
 from layers.Autoformer_EncDec import series_decomp
-
-def group_lasso_loss(pred: torch.Tensor, target: torch.Tensor, lambda_: float = 1.0) -> torch.Tensor:
-    """
-    Computes the Group Lasso (L21) loss between prediction and ground truth tensors.
-    
-    Args:
-        pred (torch.Tensor): Prediction tensor of shape (C, T).
-        target (torch.Tensor): Ground truth tensor of shape (C, T).
-        lambda_ (float): Regularization coefficient for the Group Lasso loss.
-
-    Returns:
-        torch.Tensor: Computed Group Lasso loss (scalar).
-    """
-    # print(pred.shape, target.shape)
-    assert pred.shape == target.shape, "Shape mismatch between prediction and target tensors"
-
-    # Compute the element-wise difference (error)
-    diff = pred - target
-
-    # Compute the L2 norm for each group (row-wise)
-    l2_norms = torch.norm(diff, p=2, dim=2) / diff.shape[2]
-
-    # Sum the L2 norms to get the L21 loss
-    l21_loss = lambda_ * torch.sum(l2_norms, dim=1).mean()
-
-    return l21_loss
 
 def count_parameters(model):
     total_params = 0
@@ -53,35 +24,9 @@ def count_parameters(model):
         if not parameter.requires_grad:
             continue
         params = parameter.numel()
-        table.add_row([name, params])
         total_params += params
     print(f"Total Trainable Params: {total_params}")
     return total_params
-
-def distance_wb(gwr, gws):
-    shape = gwr.shape
-
-    # TODO: output node!!!!
-    if len(gwr.shape) == 2:
-        gwr = gwr.T
-        gws = gws.T
-
-    if len(shape) == 4: # conv, out*in*h*w
-        gwr = gwr.reshape(shape[0], shape[1] * shape[2] * shape[3])
-        gws = gws.reshape(shape[0], shape[1] * shape[2] * shape[3])
-    elif len(shape) == 3:  # layernorm, C*h*w
-        gwr = gwr.reshape(shape[0], shape[1] * shape[2])
-        gws = gws.reshape(shape[0], shape[1] * shape[2])
-    elif len(shape) == 2: # linear, out*in
-        tmp = 'do nothing'
-    elif len(shape) == 1: # batchnorm/instancenorm, C; groupnorm x, bias
-        gwr = gwr.reshape(1, shape[0])
-        gws = gws.reshape(1, shape[0])
-        return 0
-
-    dis_weight = torch.sum(1 - torch.sum(gwr * gws, dim=-1) / (torch.norm(gwr, dim=-1) * torch.norm(gws, dim=-1) + 0.000001))
-    dis = dis_weight
-    return dis
 
 
 class multi_scale_process_inputs(nn.Module):
@@ -260,11 +205,8 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                                 f_dim = -1 if self.args.features == 'MS' else 0
                                 outputs_t_tmp = outputs_t_tmp[:, -self.args.pred_len:, f_dim:]
                                 if self.args.model_t in ['PatchTST']:
-                                    # torch.Size([224, 90, 512])
                                     features_t_tmp = torch.reshape(features_t_tmp[-2], (-1,batch_x.shape[-1], features_t_tmp[-2].shape[-2], features_t_tmp[-2].shape[-1]))
-                                    # torch.Size([32, 7, 90, 512])
                                     features_t_tmp = nn.Flatten(start_dim=-2)(features_t_tmp)
-                                    # torch.Size([32, 7, 46080])
                                 elif self.args.model_t in ['FEDformer', 'Autoformer']:
                                     features_t_tmp = features_t_tmp[-2].permute(0, 2, 1)
                                     features_t_tmp = features_t_tmp[:, :batch_x.shape[-1], f_dim:]
@@ -282,7 +224,6 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                                     features_t_tmp = nn.Flatten(start_dim=-2)(features_t_tmp[-2])
                                 elif self.args.model_t in ['TimeMixer']:
                                     features_t_tmp = features_t_tmp[-1].permute(0, 2, 1)
-                                    # features_t_tmp = features_t_tmp[:, :, -self.args_t.d_model:]
                                 else:
                                     features_t_tmp = features_t_tmp[-2][:, :batch_x.shape[-1], f_dim:]
                                 outputs_t.append(outputs_t_tmp)
@@ -311,11 +252,9 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                         loss_logit_multiscale = 0
                         for i in range(num_outputs):
                             loss_logit_multiscale += self.args.alpha * criterion(outputs_multi_scale[i], outputs_t_multi_scale[i])
-                            # loss_logit_multiscale += self.args.alpha * group_lasso_loss(outputs_multi_scale[i], outputs_t_multi_scale[i])
                         loss_logit_multiscale /= num_outputs
 
                         loss_logit = loss_logit_frequency + loss_logit_multiscale
-                        # loss_logit = loss_logit_multiscale
 
                         # feature level 
                         if len(features_t) == 1:
@@ -343,11 +282,9 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                         num_features = len(features_multi_scale)
                         for i in range(num_features):
                             loss_feature_multiscale += self.args.beta * criterion(features_multi_scale[i], features_t_multi_scale[i])
-                            # loss_feature_multiscale += self.args.beta * group_lasso_loss(features_multi_scale[i], features_t_multi_scale[i])
                         loss_feature_multiscale /= num_features
 
                         loss_feature = loss_feature_frequency + loss_feature_multiscale
-                        # loss_feature = loss_feature_multiscale
 
                         loss_gt = criterion(outputs, batch_y)
 
