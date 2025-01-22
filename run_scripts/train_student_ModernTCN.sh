@@ -12,15 +12,15 @@ datasets['Traffic']="96 192 336 720"
 datasets['Weather']="96 192 336 720"
 
 declare -A alpha_dist=(
-    ["ECL"]=0.1 ["Traffic"]=0.5 ["Solar"]=0.1 
-    ["ETTh1"]=2 ["ETTh2"]=1 ["ETTm1"]=1 
-    ["ETTm2"]=1 ["Weather"]=0.1
+    ["ECL"]=0.1 ["Traffic"]=0.1 ["Solar"]=0.1 
+    ["ETTh1"]=2 ["ETTh2"]=2 ["ETTm1"]=2 
+    ["ETTm2"]=2 ["Weather"]=0.5
 )
 
 declare -A beta_dist=(
-    ["ECL"]=0.5 ["Traffic"]=0.5 ["Solar"]=1
-    ["ETTh1"]=2 ["ETTh2"]=0.5 ["ETTm1"]=1 
-    ["ETTm2"]=0.1 ["Weather"]=0.1
+    ["ECL"]=0.5 ["Traffic"]=0.1 ["Solar"]=2
+    ["ETTh1"]=2 ["ETTh2"]=0.5 ["ETTm1"]=0.1 
+    ["ETTm2"]=0.5 ["Weather"]=2
 )
 
 declare -A norm_dist=(
