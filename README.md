@@ -28,6 +28,8 @@
 <img src="./figures/logo.png" width="100">
 </p>
 
+---
+>
 > 🧑‍💻 Please let us know if you notice any mistakes or have suggestions!
 >
 > 🌟 If you find this resource helpful, please consider starring this repository and citing our research:
