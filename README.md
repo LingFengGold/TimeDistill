@@ -42,7 +42,7 @@
 }
 ```
 ## Introduction
-Transformer and CNN models perform well in long-term time series forecasting but are resource-intensive. TimeDistill, a knowledge distillation framework that transfers temporal and frequency patterns from these models to lightweight MLPs.
+Transformer and CNN models perform well in long-term time series forecasting but are resource-intensive. TimeDistill is a knowledge distillation framework that transfers temporal and frequency patterns from these models to lightweight MLPs.
 <p align="center">
 <img src="./figures/framework.png" height = "240" alt="" align=center />
 </p>
