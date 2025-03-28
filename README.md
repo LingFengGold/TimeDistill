@@ -42,11 +42,18 @@
 }
 ```
 ## Introduction
-Transformer and CNN models perform well in long-term time series forecasting but are resource-intensive. TimeDistill, a knowledge distillation framework that transfers temporal and frequency patterns from these models to lightweight MLPs. It improves MLP performance by up to 18.6%, surpasses teacher models on eight datasets, runs up to 7× faster, and uses 130× fewer parameters.
+Transformer and CNN models perform well in long-term time series forecasting but are resource-intensive. TimeDistill, a knowledge distillation framework that transfers temporal and frequency patterns from these models to lightweight MLPs.
 <p align="center">
 <img src="./figures/framework.png" height = "240" alt="" align=center />
 </p>
-TimeDistill is consist of two modules: (a) Multi-Scale Distillation involves downsampling the original time series into multiple coarser scales and aligning these scales between the student and teacher. (b) Multi-Period Distillation applies FFT to transform the time series into a spectrogram, followed by matching the period distributions after applying softmax.
+TimeDistill consists of two modules: (a) Multi-Scale Distillation, which downsamples the original time series into multiple coarser scales and aligns these scales between the student and teacher; and (b) Multi-Period Distillation, which applies the Fast Fourier Transform (FFT) to convert the time series into a spectrogram, followed by matching the period distributions after applying the softmax function.
+
+## Performance
+TimeDistill improves MLP performance by up to 18.6%, surpasses teacher models on eight datasets, runs up to 7× faster, and uses 130× fewer parameters.
+<div align="center">
+  <img src="./figures/radar.png" height="200" />
+  <img src="./figures/efficiency.png" height="200" />
+</div>
 
 ## Usage
 1. **Install requirements.** ```pip install -r requirements.txt``` or ```conda env create -f environment.yml```
