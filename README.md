@@ -25,14 +25,12 @@
 </div>
 
 <p align="center">
-<img src="./figures/logo.png" width="70">
+<img src="./figures/logo.png" width="100">
 </p>
----
->
-> 🙋 Please let us know if you find out a mistake or have any suggestions!
-> 
-> 🌟 If you find this resource helpful, please consider to star this repository and cite our research:
 
+> 🧑‍💻 Please let us know if you notice any mistakes or have suggestions!
+>
+> 🌟 If you find this resource helpful, please consider starring this repository and citing our research:
 ```
 @article{ni2025timedistill,
   title={TimeDistill: Efficient Long-Term Time Series Forecasting with MLP via Cross-Architecture Distillation},
