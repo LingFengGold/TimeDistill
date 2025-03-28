@@ -44,7 +44,7 @@
 ## Introduction
 Transformer and CNN models perform well in long-term time series forecasting but are resource-intensive. TimeDistill, a knowledge distillation framework that transfers temporal and frequency patterns from these models to lightweight MLPs. It improves MLP performance by up to 18.6%, surpasses teacher models on eight datasets, runs up to 7× faster, and uses 130× fewer parameters.
 <p align="center">
-<img src="./figures/framework.png" height = "360" alt="" align=center />
+<img src="./figures/framework.png" height = "240" alt="" align=center />
 </p>
 TimeDistill is consist of two modules: (a) Multi-Scale Distillation involves downsampling the original time series into multiple coarser scales and aligning these scales between the student and teacher. (b) Multi-Period Distillation applies FFT to transform the time series into a spectrogram, followed by matching the period distributions after applying softmax.
 
