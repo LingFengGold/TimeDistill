@@ -1,7 +1,7 @@
 <div align="center">
   <!-- <h1><b> TimeDistill </b></h1> -->
   <!-- <h2><b> TimeDistill </b></h2> -->
-  <h2><b> TimeDistill: Efficient Long-Term Time Series Forecasting with MLPs via Cross-Architecture Distillation </b></h2>
+  <h2><b> (KDD'26) TimeDistill: Efficient Long-Term Time Series Forecasting with MLPs via Cross-Architecture Distillation </b></h2>
 </div>
 
 <!-- <div align="center">
