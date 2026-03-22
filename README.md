@@ -55,8 +55,9 @@ TimeDistill improves MLP performance by up to 18.6%, surpasses teacher models on
   <img src="./figures/efficiency.png" height="200" />
 </div>
 
+
 ## Usage
-1. **Install requirements.** ```pip install -r requirements.txt``` or ```conda env create -f environment.yml```
+1. **Install requirements.** ```pip install -r requirements.txt``` or ```conda env create -f environment.yaml```
 2. **Download data.** You can download the all datasets from [Google Driver](https://drive.google.com/u/0/uc?id=1NF7VEefXCmXuWNbnNe858WvQAkJ_7wuP&export=download) and put ``.zip`` file in ```./dataset/``` and unzip directly. All the datasets are well pre-processed and can be used easily. 
 3. **Train the teacher model.** To obtain well-trained teacher model, run the corresponding script: 
 ```bash
@@ -71,6 +72,11 @@ bash ./run_scripts/train_student_ModernTCN.sh # Teacher: ModernTCN
 bash ./run_scripts/train_student.sh # Customize Teacher
 ```
 You can specific the teacher model name using ```model_t``` in ```./run_scripts/train_student.sh```. The above scripts default to running all datasets across all prediction lengths ```(96, 192, 336 ,720)```.
+
+## Warning
+
+The repository code has only been tested on A100 with CUDA version 12.8. Using other hardware may require installing different packages or may lead to new issues. You are welcome to report them in the issues section.
+
 
 ## Acknowledgement
 Our implementation adapts [Time-Series-Library](https://github.com/thuml/Time-Series-Library) as the code base and have extensively modified it to our purposes. We thank the authors for sharing their implementations and related resources.

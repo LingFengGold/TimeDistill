@@ -6,7 +6,6 @@ dependencies:
   - _openmp_mutex=5.1
   - blas=1.0
   - ca-certificates=2024.7.2
-  - cudatoolkit=11.0.221
   - intel-openmp=2021.4.0
   - libedit=3.1.20230828
   - libffi=3.2.1
@@ -102,7 +101,7 @@ dependencies:
     - tensorboard-data-server==0.7.2
     - thop==0.1.1-2209072238
     - threadpoolctl==3.5.0
-    - torch==1.10.1
+    - torch==2.4.1
     - tqdm==4.64.1
     - traitlets==5.14.3
     - urllib3==2.2.2

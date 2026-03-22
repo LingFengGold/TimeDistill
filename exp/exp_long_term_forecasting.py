@@ -119,6 +119,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
     def _select_criterion(self):
         criterion = nn.MSELoss()
         return criterion
+
     def train(self, setting):
         train_data, train_loader = self._get_data(flag='train')
         vali_data, vali_loader = self._get_data(flag='val')
@@ -267,12 +268,13 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                         frequency_list_t = abs(features_t_ft)
                         features_ft = torch.fft.rfft(features[-2].permute(0, 2, 1), dim=1)
                         frequency_list = abs(features_ft)
-                        frequency_list_t = F.softmax(frequency_list_t[:, 1:, :] / 0.5, dim=1)
-                        frequency_list = F.softmax(frequency_list[:, 1:, :] / 0.5, dim=1)
+                        teacher_logprob = F.log_softmax(frequency_list_t[:, 1:, :] / 0.5, dim=1)
+                        student_logprob = F.log_softmax(frequency_list[:, 1:, :] / 0.5, dim=1)
                         loss_feature_frequency = self.args.beta * F.kl_div(
-                            torch.log(frequency_list + 1e-8),  
-                            frequency_list_t,           
-                            reduction='mean'                  
+                            student_logprob,
+                            teacher_logprob,
+                            reduction='mean',
+                            log_target=True,
                         )
 
                         # multi scale matching
